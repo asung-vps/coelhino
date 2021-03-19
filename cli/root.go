@@ -8,11 +8,15 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "coel",
+	Use:   "coelhino",
 	Short: "Coelhino CLI",
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Calling Coelhino root command")
-	},
+}
+
+func init() {
+	// Set passed function(s) to be run when each command's Execute method is called.
+	cobra.OnInitialize(initConfig)
+
+	rootCmd.AddCommand(initCmd)
 }
 
 func Execute() {
@@ -21,4 +25,8 @@ func Execute() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
+}
+
+func initConfig() {
+
 }
