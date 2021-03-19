@@ -1,9 +1,9 @@
 package main
 
 import (
-	"log"
+	"coelhino/cli"
 )
 
 func main() {
-	log.Println("Hello world")
+	cli.Execute()
 }
