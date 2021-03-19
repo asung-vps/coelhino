@@ -8,8 +8,8 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "coelhino",
-	Short: "Coelhino CLI",
+	Use:   "starfire",
+	Short: "Starfire CLI",
 }
 
 func init() {

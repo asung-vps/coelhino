@@ -1,6 +1,6 @@
 //
-// This file contains the implementations relevant to a Coelhino project context.
-// Project contexts contain high level information about a Coelhino project.
+// This file contains the implementations relevant to a Starfire project context.
+// Project contexts contain high level information about a Starfire project.
 //
 
 package context
@@ -11,7 +11,8 @@ type projectCtx struct {
 }
 
 func NewProjectCtx(projectPath string) *projectCtx {
-
+	// Check file
+	return nil
 }
 
 // Returns whether the project is initialized.

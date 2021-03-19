@@ -8,7 +8,7 @@ import (
 
 var initCmd = &cobra.Command{
 	Use:   "init",
-	Short: "Initialize Coelhino project",
+	Short: "Initialize Starfire project",
 	Run: func(cmd *cobra.Command, args []string) {
 		log.Println("Calling init command")
 	},

@@ -1,15 +1,9 @@
 package main
 
 import (
-	_ "coelhino/cli"
-	"coelhino/context"
-
-	"log"
+	"starfire/cli"
 )
 
 func main() {
-	// cli.Execute()
-	ctx := context.NewProjectCtx()
-
-	log.Printf("%v\n", ctx.PublicStr)
+	cli.Execute()
 }

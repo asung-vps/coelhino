@@ -1,4 +1,4 @@
-module coelhino
+module starfire
 
 go 1.16
 
