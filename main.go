@@ -1,9 +1,10 @@
 package main
 
 import (
-	"starfire/cli"
+	"starfire/context"
 )
 
 func main() {
-	cli.Execute()
+	ctx := context.NewProjectCtx("C:/Users/asung.VPS/Desktop/starfire/")
+	ctx.IsInitialized()
 }

@@ -1,0 +1,2 @@
+name = "Starfire"
+testplan = "./source/testplan.toml"
