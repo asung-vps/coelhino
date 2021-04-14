@@ -1,0 +1,2 @@
+name = "StarfireTest"
+orchestration_file = "source/orch.toml"

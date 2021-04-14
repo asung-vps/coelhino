@@ -1,10 +1,7 @@
 package main
 
-import (
-	"starfire/context"
-)
+import "fmt"
 
 func main() {
-	ctx := context.NewProjectCtx("C:/Users/asung.VPS/Desktop/starfire/")
-	ctx.IsInitialized()
+	fmt.Println("Hello world")
 }

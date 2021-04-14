@@ -22,12 +22,13 @@ const (
 // Design notes:
 //  - Contain minimal information for simplicity
 //  - No default values
+//
 type Config struct {
 	// The name of the project
 	Name string `toml:"name"`
 
 	// The path of the orchestration TOML file
-	OrchestrationFile string `toml:"orchestration-file"`
+	OrchestrationFile string `toml:"orchestration_file"`
 }
 
 type Context struct {
@@ -66,7 +67,8 @@ func (context *Context) initConfig(rootDir string) error {
 	configFile.Read(bytes)
 	err = toml.Unmarshal(bytes, &context.config)
 	if err != nil {
-		log.Fatalf("Error occurred during unmarshalling: %v", err)
+		msg := "Error occurred while unmarshalling to Config struct: %v"
+		log.Fatalf(msg, err)
 		return err
 	}
 
@@ -76,16 +78,6 @@ func (context *Context) initConfig(rootDir string) error {
 	orchPath.WriteRune('/')
 	orchPath.WriteString(context.config.OrchestrationFile)
 	context.config.OrchestrationFile = orchPath.String()
-
-	// Check orchestration file exists
-	orchFile, err := os.OpenFile(orchPath.String(), os.O_RDWR, 0755)
-	if err != nil {
-		log.Printf("Error occurred when opening orchestration file: %v\n", err)
-		return err
-	}
-	orchFile.Close()
-
-	// If parsed successfully, parse orchestration file
 
 	return nil
 }

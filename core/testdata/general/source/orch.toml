@@ -1,0 +1,19 @@
+description = "This is an orchestration file"
+execution_order = [
+    "run:transaction.toml",
+
+	# If-else condition
+	"if: condition.js",
+	"then: transaction.toml",
+	"else: another-transaction.toml",
+
+	# If-elseif-else condition
+	# If a condition is met, skip until non-conditional transaction is found
+	"if-then: condition1.js, transaction.toml",
+	"else-if: condition2.js, transaction2.toml",
+	"else: transaction3.toml",
+
+	"apply:settings/settings.toml",
+
+	"run:transactions/transaction2.toml"
+]
