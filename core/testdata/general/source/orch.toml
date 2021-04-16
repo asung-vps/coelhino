@@ -1,6 +1,16 @@
 description = "This is an orchestration file"
+# paths to look for files
+path = ["transactions"]
 execution_order = [
     "run:transaction.toml",
+
+    # Multi-line If-then condition (without else)
+    "if: condition.js",
+    """then: \
+    transaction1.toml,\
+    transaction2.toml,\
+    transaction3.toml\
+    """,
 
 	# If-else condition
 	"if: condition.js",

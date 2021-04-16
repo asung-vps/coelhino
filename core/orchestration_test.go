@@ -39,15 +39,25 @@ func TestOrchestrationInit(t *testing.T) {
 		expected := "run:transaction.toml"
 		actual := orch.ExecutionOrder[0]
 		if expected != actual {
-			msg := "Mismatch for orchExecutionOrder[0].\nExpected: %v\nGot: %v"
+			msg := "Mismatch for orch.ExecutionOrder[0].\nExpected: %v\nGot: %v"
 			t.Errorf(msg, expected, actual)
 		}
 		len := len(orch.ExecutionOrder) - 1
 		expected = "run:transactions/transaction2.toml"
 		actual = orch.ExecutionOrder[len]
 		if expected != actual {
-			msg := "Mismatch for orchExecutionOrder[%v].\nExpected: %v\nGot: %v"
+			msg := "Mismatch for orch.ExecutionOrder[%v].\nExpected: %v\nGot: %v"
 			t.Errorf(msg, len, expected, actual)
+		}
+	})
+
+	// Test multi-line string was properly parsed in orch file.
+	t.Run("multi-line string parsing", func(t *testing.T) {
+		expected := "then: transaction1.toml,transaction2.toml,transaction3.toml"
+		actual := orch.ExecutionOrder[2]
+		if expected != actual {
+			msg := "Mismatch for orch.ExecutionOrder[2].\nExpected: %v\nGot: %v"
+			t.Errorf(msg, expected, actual)
 		}
 	})
 }
